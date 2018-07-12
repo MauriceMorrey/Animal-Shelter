@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap.min.css">
+
+<div style="text-align: center;">
+      <h3>Know of a pet needing a home?</h3>
+      <form  class="form-control" name="petForm" #petForm="ngForm" (submit)= "editPet()">
+        <div class="form-group">
+  
+          Name: <input 
+          type="text" 
+          name="name" 
+          [(ngModel)]="pet.name"
+          [value]="pet.name"  
+          required
+          minlength="3"
+          #name="ngModel">
+          <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert-sm alert-danger">
+            <div [hidden]="!name.errors.required">
+              Pet name is required!
+            </div>
+            <div [hidden]="!name.errors.minlength">
+              Name must be at least 3 characters long.
+            </div>
+            <div [hidden]="!name.errors.unique">
+                This name already exists.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          Type:<input 
+          type="text" 
+          name="type" 
+          [(ngModel)]="pet.type"
+          [value]="pet.type"  
+          required
+          minlength="3"
+          #type="ngModel">
+          <div *ngIf="type.errors && (type.dirty || type.touched)" class="alert-sm alert-danger">
+            <div [hidden]="!type.errors.required">
+              Pet type is required!
+            </div>
+            <div [hidden]="!type.errors.minlength">
+                Type must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          Description: <input 
+          type="text" 
+          name="description" 
+          [(ngModel)]="pet.description"
+          [value]="pet.description"  
+          required
+          minlength="3"
+          #description="ngModel">
+          <div *ngIf="description.errors && (description.dirty || description.touched)" class="alert-sm alert-danger">
+            <div [hidden]="!description.errors.required">
+              Pet description is required!
+            </div>
+            <div [hidden]="!description.errors.minlength">
+                Description must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            Skill 1:<input 
+            type="text" 
+            name="skill1" 
+            [(ngModel)]="pet.skill1"
+            [value]="pet.skill1"  
+            required
+            #skill1="ngModel">
+            <div *ngIf="skill1.errors && (skill1.dirty || skill1.touched)" class="alert-sm alert-danger">
+              <div [hidden]="!skill1.errors.required">
+                Pet skill1 is required!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+              Skill 2:<input 
+              type="text" 
+              name="skill2" 
+              [(ngModel)]="pet.skill2"
+              [value]="pet.skill2"  
+              required
+              #skill2="ngModel">
+              <div *ngIf="skill2.errors && (skill2.dirty || skill2.touched)" class="alert-sm alert-danger">
+                <div [hidden]="!skill2.errors.required">
+                  Pet skill2 is required!
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                Skill 3:<input 
+                type="text" 
+                name="skill3" 
+                [(ngModel)]="pet.skill3"
+                [value]="pet.skill3"  
+                required
+                #skill3="ngModel">
+                <div *ngIf="skill3.errors && (skill3.dirty || skill3.touched)" class="alert-sm alert-danger">
+                  <div [hidden]="!skill3.errors.required">
+                    Pet skill3 is required!
+                  </div>
+                </div>
+              </div>
+              <div class="btn-group">
+                <button type="submit" style="margin-left: 15px;" class="btn-sm btn-primary" >Update Info</button>
+                <button type="button" [routerLink]="['/']" style="margin-left: 15px;" class="btn-sm btn-warning" >Cancel</button>
+                <button type="button" style="margin-left: 15px;" class="btn-sm btn-danger" (click)="deletePetFromService(pet._id)">Delete</button>
+              </div>
+        
+        </form>
+  </div>

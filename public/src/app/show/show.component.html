@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap.min.css">
+
+
+<div style="text-align: center;">
+  <button type="button" class="btn-sm btn-primary" [routerLink]="['/']">Home</button>
+  <br>
+  <br>
+  <h2>Details about <u>
+      <i>{{pet.name}}</i>
+    </u> </h2>
+  <br>
+  <h3>
+    <u>
+      <i>Name:</i>
+    </u> {{pet.name}}</h3>
+  <h4>
+    <u>
+      <i>Type:</i>
+    </u> {{pet.type}}</h4>
+  <h5>
+    <u>
+      <i>Description:</i>
+    </u> {{pet.description}}</h5>
+  <u>
+    <i>
+      <h3>Skills:</h3>
+    </i>
+  </u>
+  <h6>
+    <u>
+      <i>Skill 1:</i>
+    </u> {{pet.skill1}}</h6>
+  <h6>
+    <u>
+      <i>Skill 2:</i>
+    </u> {{pet.skill2}}</h6>
+  <h6>
+    <u>
+      <i>Skill 3:</i>
+    </u> {{pet.skill3}}</h6>
+  <h5>
+    <u>
+      <i>Likes:</i>
+    </u> {{pet.likes}}</h5>
+  <br>
+  <div class="btn-group">
+    <button class="btn-sm btn-success" style="margin-left: 15px;" *ngIf="boolean" (click)="likePet(pet._id)">Like this Pet</button>
+    <button class="btn-sm btn-warning" style="margin-left: 15px;" (click)="deletePetFromService(pet._id)">Adopt This Pet</button>
+  </div>
+
+</div>
